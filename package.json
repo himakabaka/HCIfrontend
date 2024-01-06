@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@opentiny/vue": "^3.12.1",
+    "axios": "^1.6.5",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },

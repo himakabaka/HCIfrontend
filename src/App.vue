@@ -5,6 +5,7 @@
     <div v-for="(tuple, index) in tuples" :key="index">
 
       <panel :title="tuple[1]['标题'] " :url="tuple[1]['pdf']" >
+        <button @click="fetchData('cs.SE')">获取数据</button>
         <div v-for="(value, key) in tuple[1]" :key="key">
           <strong>{{ key }}:</strong> {{ value }}
         </div>
@@ -15,7 +16,9 @@
 
 <script>
 import Home from "@/components/myHome";
-import Panel from '@/components/myPanel.vue'; // 请根据你的项目路径调整
+import Panel from '@/components/myPanel.vue';
+import axios from 'axios';  //导入axios
+
 export default {
   name: 'App',
   components: {
@@ -85,7 +88,23 @@ export default {
       // Convert JSON data to array of tuples
       return Object.entries(replaceKeywordsWithChinese(this.jsonData));
     }
-}}
+},methods:{
+    //使用： <button @click="fetchData('url')">获取数据</button>、</div>
+    async fetchData(apiUrl) {
+      try {
+        // 发送GET请求获取数据
+        let response = await axios.get(`http://127.0.0.1:8000/${apiUrl}`);
+        // 将获取到的数据赋值给dataset
+        // eslint-disable-next-line no-unused-vars
+        this.jsonData = response.data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+}
+
+}
 
 
 function replaceKeywordsWithChinese(jsonData) {

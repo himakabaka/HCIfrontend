@@ -3,9 +3,11 @@
 <template>
   <div class="panel">
     <div class="panel-header">
-        {{ title + author}}
-
+        {{ title}}
+      <a href= "{{ url }}" target="_blank">PDF</a>
     </div>
+
+
     <div class="panel-content">
       <slot></slot>
     </div>
@@ -23,6 +25,9 @@ export default {
     },
     author:{
       type:List,
+      required: true
+    },url:{
+      type:String,
       required: true
     }
 

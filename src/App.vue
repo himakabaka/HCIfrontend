@@ -1,11 +1,12 @@
 <template>
 
   <home data/>
+  <button @click="fetchData('cs.SE')">获取数据</button>
   <div>
     <div v-for="(tuple, index) in tuples" :key="index">
 
-      <panel :title="tuple[1]['标题'] " :url="tuple[1]['pdf']" >
-        <button @click="fetchData('cs.SE')">获取数据</button>
+      <panel :title="tuple[1]['标题'] " :url="tuple[1]['PDF链接']" :paper="tuple[1]['链接']" >
+
         <div v-for="(value, key) in tuple[1]" :key="key">
           <strong>{{ key }}:</strong> {{ value }}
         </div>

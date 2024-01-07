@@ -4,7 +4,8 @@
   <div class="panel">
     <div class="panel-header">
         {{ title}}
-      <a href= "{{ url }}" target="_blank">PDF</a>
+      <a :href="url" target="_blank">PDF</a>
+      <a :href="paper" target="_blank">文章</a>
     </div>
 
 
@@ -29,7 +30,10 @@ export default {
     },url:{
       type:String,
       required: true
-    }
+    },paper:{
+    type:String,
+    required: true
+  }
 
   }
 };
@@ -37,10 +41,12 @@ export default {
 
 <style scoped>
 .panel {
+
+  max-width: 80%;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  margin: 10px auto;
+  margin: 30px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 }
@@ -50,7 +56,7 @@ export default {
 }
 
 .panel-header {
-  background-color: #3498db;
+  background-color: #57b8ff;
   color: #fff;
   padding: 10px;
   font-size: 1.2em;
@@ -60,5 +66,19 @@ export default {
 
 .panel-content {
   padding: 20px;
+}
+a {
+  margin-right: 6px;
+  font-size: medium;
+  color: #FF6347;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+a:hover {
+  color: #51a1ee;
+  text-decoration: none;
+}
+a:last-child {
+  margin-right: 0;
 }
 </style>

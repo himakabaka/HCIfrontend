@@ -1,7 +1,6 @@
 <template>
 
   <home data/>
-  <button @click="fetchData('cs.SE')">获取数据</button>
   <div>
     <div v-for="(tuple, index) in tuples" :key="index">
 
@@ -13,16 +12,23 @@
       </panel>
     </div>
   </div>
+  <div>
+    <my-footer></my-footer>
+  </div>
+
 </template>
 
 <script>
 import Home from "@/components/myHome";
 import Panel from '@/components/myPanel.vue';
 import axios from 'axios';  //导入axios
-
+import MyFooter from '@/components/myFooter';
+import MyArxiv from "@/components/myArxiv";
 export default {
   name: 'App',
   components: {
+    MyArxiv,
+    MyFooter,
     Home,
     Panel
   } ,
